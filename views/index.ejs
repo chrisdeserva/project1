@@ -1,11 +1,30 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <title>Project one</title>
+    <link rel='stylesheet' href='/stylesheets/bootstrap.min.css' />
+
+    <script src="/javascripts/angular.min.js"></script>
+    <script src="/javascripts/angular-ui-router.js"></script>
+    <script src="/javascripts/main.js"></script>
   </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+  <body ng-app="atbp">
+    <div class=row">
+        <div class="col-md-6 col-md-offset-3">
+            <h1 id="header">Header</h1>
+            <ui-view></ui-view>
+            <h3>Footer</h3>
+        </div>
+    </div>
+
+    <script type="text/ng-template" id="/home.html">
+        <a href="#/signup">Sign up</a>
+        <a href="#/login">Login</a>
+
+        <div>
+            <input type="text" placeholder="Search item" name="search" id="search" class="form-control" ng-model="search_item" />
+            <button type="submit" class="btn btn-primary" ng-click="search()">Search</button>
+        </div>
+    </script>
   </body>
 </html>
