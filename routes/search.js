@@ -5,7 +5,7 @@ router.use(function(req, res, next){
     //do authentications
     console.log(req.method, req.url);
     //get query string
-    console.log("searchItem", req.query.search);
+    req.search = req.query.q;
     next();
 });
 
@@ -17,7 +17,12 @@ router.param('search', function (req, res, next, search) {
 });
 
 router.get('/', function(req, res) {
-    console.log("root");
+    res.render('search', { 
+        home: 'http://localhost:3000', 
+        //searchItem: req.params.search,
+        searchItem: req.search,
+        result: 'Search result' 
+    });
 });
 
 router.get('/item/:search', function(req, res) {
@@ -27,7 +32,7 @@ router.get('/item/:search', function(req, res) {
         searchItem: req.search,
         result: 'Search result' 
     });
-    //res.json({"first":"chris", "last": "deserva"});
+    //res.json({"first":"first", "last": "second"});
 });
 
 module.exports = router;
