@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>Project one</title>
+        <link rel='stylesheet' href='/stylesheets/bootstrap.min.css' />
+        <!-- <link rel='stylesheet' href='/stylesheets/jquery.fancybox.css' /> -->
+        <link rel='stylesheet' href='/stylesheets/main.css' />
+
+        <script src="/javascripts/jquery.min.js"></script>
+        <!-- <script src="/javascripts/jquery.fancybox.pack.js"></script> -->
+        <script src="/javascripts/bootstrap.min.js"></script>
+        <script src="/javascripts/angular.min.js"></script>
+        <script src="/javascripts/angular-ui-router.js"></script>
+        <script src="/javascripts/main.js"></script>
+    </head>
+    <body ng-app="atbp">
+    <% include /header.ejs %>
+    <div class="container">
+        <div class="row">
+            <div style="padding:100px 0px 0px 0px" ui-view="content">
+                Found 6 results for <strong>"<%= searchItem %>"</strong>
+            </div>
+        </div>
+    </div>
+    <% include /search2.ejs %>
+    <% include /footer.ejs %>
+    </body>
+</html>
